@@ -21,13 +21,13 @@ jobs:
       run: dotnet restore ./pngcs.sln
       
     - name: Build
-      run: dotnet build ./pngcs.sln --configuration Release -p:Version=${{ env.PACKAGE_VERSION }} -p:AssemblyVersion=${{ env.ASSEMBLY_VERSION }} -p:FileVersion=${{ env.ASSEMBLY_VERSION }}
+      run: dotnet build ./pngcs.sln --configuration Release
       
     - name: Test
       run: dotnet test ./pngcs.sln --configuration Release --no-build --verbosity normal --filter Category!=Integration
       
     - name: Pack
-      run: dotnet pack ./pngcs.sln --configuration Release -p:Version=${{ env.PACKAGE_VERSION }} -p:PackageVersion=${{ env.PACKAGE_VERSION }} -p:ProjectUrl=https://github.com/${{ github.repository }} -p:RepositoryUrl=https://github.com/${{ github.repository }}
+      run: dotnet pack ./pngcs.sln --configuration Release -p:ProjectUrl=https://github.com/${{ github.repository }} -p:RepositoryUrl=https://github.com/${{ github.repository }}
       
     - name: Push
       run: |
