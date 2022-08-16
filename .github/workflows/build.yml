@@ -1,0 +1,35 @@
+name: Build
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore ./pngcs.sln
+      
+    - name: Build
+      run: dotnet build ./pngcs.sln --configuration Release -p:Version=${{ env.PACKAGE_VERSION }} -p:AssemblyVersion=${{ env.ASSEMBLY_VERSION }} -p:FileVersion=${{ env.ASSEMBLY_VERSION }}
+      
+    - name: Test
+      run: dotnet test ./pngcs.sln --configuration Release --no-build --verbosity normal --filter Category!=Integration
+      
+    - name: Pack
+      run: dotnet pack ./pngcs.sln --configuration Release -p:Version=${{ env.PACKAGE_VERSION }} -p:PackageVersion=${{ env.PACKAGE_VERSION }} -p:ProjectUrl=https://github.com/${{ github.repository }} -p:RepositoryUrl=https://github.com/${{ github.repository }}
+      
+    - name: Push
+      run: |
+        dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --name github --username ${{ github.repository_owner }} --password ${{ github.token }} --store-password-in-clear-text
+        dotnet nuget push **/bin/Release/*.nupkg --source github --skip-duplicate

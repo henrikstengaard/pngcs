@@ -1,3 +1,13 @@
+# Pngcs
+
+Pngcs forked from https://github.com/leonbloy/pngcs.
+
+Changed to target framework Net 6.0 and Net Standard 2.0.
+
+Removed ICSharpCode.SharpZipLib.dll assembly.
+
+--------------------------------------------------------------
+
  ==== PNGCS : A small library to read/write huge PNG files in C# ===
 
 PngCs is a C# to read/write PNG images. 
