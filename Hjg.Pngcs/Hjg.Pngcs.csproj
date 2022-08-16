@@ -6,4 +6,8 @@
   <PropertyGroup>
     <DefineConstants>NET45</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="readme.md" Pack="true" PackagePath="\" />
+    <None Include="..\license.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
