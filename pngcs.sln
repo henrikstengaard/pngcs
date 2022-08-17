@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{33DB07
 		.github\workflows\build.yml = .github\workflows\build.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesTests", "SamplesTests\SamplesTests.csproj", "{F68850DD-A033-41B5-956D-BB005CC36229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +25,9 @@ Global
 		{FD3B0D50-46B3-4A83-9A6D-C641569142CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD3B0D50-46B3-4A83-9A6D-C641569142CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD3B0D50-46B3-4A83-9A6D-C641569142CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68850DD-A033-41B5-956D-BB005CC36229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68850DD-A033-41B5-956D-BB005CC36229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68850DD-A033-41B5-956D-BB005CC36229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68850DD-A033-41B5-956D-BB005CC36229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
